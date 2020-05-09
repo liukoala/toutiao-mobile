@@ -17,6 +17,18 @@
     <i class="toutiao toutiao-pinglun"></i>
     <i class="toutiao toutiao-shanchu"></i>
     <i class="toutiao toutiao-shoucang"></i>
+    <div>
+      <van-icon name="chat-o" />
+      <van-icon name="chat" />
+      <van-icon name="shopping-cart" />
+      <van-icon name="shopping-cart" dot />
+      <van-icon name="shopping-cart" badge="123" />
+    </div>
+    <div>
+      <van-button icon="star-o" type="primary" />
+      <van-button icon="chat" type="primary" />
+      <van-button icon-prefix="toutiao" icon="yanzhengma" type="primary" />
+    </div>
   </div>
 </template>
 
