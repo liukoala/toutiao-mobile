@@ -10,12 +10,21 @@
     <!-- /导航栏 -->
 
     <!-- 登录表单 -->
-    <van-cell-group>
+    <!--
+      基于 Vant 的表单验证：
+      1、使用 van-form 组件包裹所有的表单项 van-field
+      2、给 van-form 绑定 submit 事件
+         当表单提交的时候会触发 submit 事件
+         提示：只有表单验证通过，它才会调用 submit
+      3、使用 Field 的rules属性定义校验规则
+     -->
+    <van-form @submit="onLogin">
       <van-field
         v-model="user.mobile"
         icon-prefix="toutiao"
         left-icon="shouji"
         placeholder="请输入手机号"
+        :rules="[{ required: true, message: '请填写用户名' }]"
       />
       <van-field
         v-model="user.code"
@@ -32,15 +41,14 @@
           >发送验证码</van-button>
         </template>
       </van-field>
-    </van-cell-group>
-    <div class="login-btn-wrap">
-      <van-button
-        class="login-btn"
-        type="info"
-        block
-        @click="onLogin"
-      >登录</van-button>
-    </div>
+      <div class="login-btn-wrap">
+        <van-button
+          class="login-btn"
+          type="info"
+          block
+        >登录</van-button>
+      </div>
+    </van-form>
     <!-- /登录表单 -->
   </div>
 </template>
