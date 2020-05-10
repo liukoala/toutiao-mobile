@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- 路由的出口 -->
+    <!-- 一级路由的出口，路由表中所有的顶层路由都是一级路由 -->
     <router-view/>
   </div>
 </template>

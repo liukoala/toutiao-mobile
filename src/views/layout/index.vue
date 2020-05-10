@@ -1,6 +1,6 @@
 <template>
   <div class="layout-container">
-    <!-- 子路由出口 -->
+    <!-- layout 的子路由出口，或者说是二级路由 -->
     <router-view />
     <!-- /子路由出口 -->
 
