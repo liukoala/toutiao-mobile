@@ -118,10 +118,13 @@ export default {
       // 2. 封装请求方法
       // 3. 请求调用登录
       try {
-        const res = await login(this.user)
+        const { data } = await login(this.user)
+
         // 4. 处理响应结果
-        console.log(res)
         this.$toast.success('登录成功')
+
+        // 将后端返回的用户登录状态（token等数据）放到 Vuex 容器中
+        this.$store.commit('setUser', data.data)
       } catch (err) {
         console.log(err)
         this.$toast.fail('登录失败，手机号或验证码错误')
