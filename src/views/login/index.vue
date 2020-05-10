@@ -44,7 +44,14 @@
         :rules="formRules.code"
       >
         <template #button>
+          <van-count-down
+            v-if="isCountDownShow"
+            :time="1000 * 60"
+            format="ss s"
+            @finish="isCountDownShow = false"
+          />
           <van-button
+            v-else
             class="send-btn"
             size="mini"
             round
@@ -75,7 +82,7 @@ export default {
   data () {
     return {
       user: {
-        mobile: '', // 手机号
+        mobile: '17090086870', // 手机号
         code: '' // 验证码
       },
       formRules: {
@@ -87,7 +94,8 @@ export default {
           { required: true, message: '请输入验证码' },
           { pattern: /^\d{6}$/, message: '验证码格式错误' }
         ]
-      }
+      },
+      isCountDownShow: false // 控制倒计时和发送按钮的显示状态
     }
   },
   computed: {},
@@ -129,9 +137,14 @@ export default {
       try {
         // 校验手机号码
         await this.$refs['login-form'].validate('mobile')
+
         // 验证通过，请求发送验证码
-        const res = await sendSms(this.user.mobile)
-        console.log(res)
+        await sendSms(this.user.mobile)
+
+        // 短信发出去了，隐藏发送按钮，显示倒计时
+        this.isCountDownShow = true
+
+        // 倒计时结束 -> 隐藏倒计时，显示发送按钮（监视倒计时的 finish 事件处理）
       } catch (err) {
         // try 里面任何代码的错误都会进入 catch
         // 不同的错误需要有不同的提示，那就需要判断了
