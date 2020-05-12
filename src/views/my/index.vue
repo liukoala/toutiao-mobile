@@ -50,16 +50,18 @@
       </van-grid>
     </van-cell-group>
 
-    <van-grid :column-num="2">
+    <van-grid class="nav-grid" :column-num="2">
       <van-grid-item
+        class="nav-grid-item"
         icon-prefix="toutiao"
         icon="shoucang"
-        text="文字"
+        text="收藏"
       />
       <van-grid-item
+        class="nav-grid-item"
         icon-prefix="toutiao"
         icon="lishi"
-        text="文字"
+        text="历史"
       />
     </van-grid>
 
@@ -133,6 +135,25 @@ export default {
     }
     /deep/ .van-grid-item__content {
       background-color: unset;
+    }
+  }
+
+  /deep/ .nav-grid {
+    .nav-grid-item {
+      height: 70px;
+      .toutiao {
+        font-size: 22px;
+      }
+      .toutiao-shoucang {
+        color: #eb5253;
+      }
+      .toutiao-lishi {
+        color: #ff9d1d;
+      }
+      .van-grid-item__text {
+        font-size: 14px;
+        color: #333333;
+      }
     }
   }
 }
