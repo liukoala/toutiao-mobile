@@ -1,10 +1,12 @@
 <template>
   <div class="my-container">
-    <van-cell-group>
+    <van-cell-group class="my-info">
       <van-cell
+        class="base-info"
         title="单元格"
         value="内容"
         center
+        :border="false"
       >
         <van-image
           slot="icon"
@@ -20,7 +22,7 @@
           round
         >编辑资料</van-button>
       </van-cell>
-      <van-grid>
+      <van-grid :border="false">
         <van-grid-item>
           <div slot="text">
             <div class="span">123</div>
@@ -83,4 +85,17 @@ export default {
 }
 </script>
 
-<style scoped lang="less"></style>
+<style scoped lang="less">
+.my-container {
+  .my-info {
+    background: url("./banner.png") no-repeat;
+    background-size: cover;
+    .base-info {
+      background-color: unset;
+    }
+    /deep/ .van-grid-item__content {
+      background-color: unset;
+    }
+  }
+}
+</style>
