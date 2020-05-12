@@ -9,15 +9,15 @@
         :border="false"
       >
         <van-image
+          class="avatar"
           slot="icon"
-          width="50"
-          height="50"
           round
           fit="cover"
           src="https://img.yzcdn.cn/vant/cat.jpeg"
         />
-        <div slot="title">昵称</div>
+        <div class="name" slot="title">昵称</div>
         <van-button
+          class="update-btn"
           size="small"
           round
         >编辑资料</van-button>
@@ -91,7 +91,27 @@ export default {
     background: url("./banner.png") no-repeat;
     background-size: cover;
     .base-info {
+      box-sizing: border-box;
+      height: 115px;
       background-color: unset;
+      padding-top: 38px;
+      padding-bottom: 11px;
+      .avatar {
+        box-sizing: border-box;
+        width: 66px;
+        height: 66px;
+        border: 1px solid #fff;
+        margin-right: 11px;
+      }
+      .name {
+        font-size: 15px;
+        color: #fff;
+      }
+      .update-btn {
+        height: 16px;
+        font-size: 10px;
+        color: #666666;
+      }
     }
     /deep/ .van-grid-item__content {
       background-color: unset;
